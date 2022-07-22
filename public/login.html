@@ -14,7 +14,7 @@
                             for(var user of data) {
                                 if(user.UserName==$("#username").val()&&user.Password==$("#password").val()) {
                                     $.cookie("username",$("#username").val());
-                                    location.href="shopping.html";
+                                    location.href="../public/shopping.html";
                                 }else {
                                     $("#error").html("Invalid UserName/Password");
                                 }

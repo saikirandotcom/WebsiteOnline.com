@@ -23,17 +23,17 @@ app.use("/getusers",function(request,response) {
         }
     })
 });
-app.use("/registerusers",function(request,response) {
+app.post("/registeruser",function(request,response) {
     var data={
         UserName:request.body.UserName,
-        Password:request.body.Password,
+        Mobile:request.body.Mobile,
         Email:request.body.Email,
+        Password:request.body.Password,
         City:request.body.City,
+        State:request.body.State,
         Postal:parseFloat(request.body.Postal),
         Address:request.body.Address,
-        State:request.body.State,
-        Payment:request.body.Payment,
-        Mobile:request.body.Mobile
+        Payment:request.body.Payment
     };
     mongoClient.connect(connectionString,function(err,clientObj) {
         if(!err) {
