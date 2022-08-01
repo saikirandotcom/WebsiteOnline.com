@@ -3,7 +3,7 @@ var express=require("express");
 var cors=require("cors");
 
 var app=express();
-var connectionString="mongodb://127.0.0.1:27017";
+var connectionString="mongodb+srv://S-A-I-K-I-R-A-N:saikiran@cluster0.cqo1r.mongodb.net/test";
 
 app.use(express.urlencoded({
     extended:true
@@ -14,8 +14,8 @@ app.use(cors());
 app.use("/getusers",function(request,response) {
     mongoClient.connect(connectionString,function(err,clientObj) {
         if(!err) {
-            var database=clientObj.db("northwind");
-            database.collection("tblRegister").find({}).toArray(function(err,documents) {
+            var database=clientObj.db("Northwind");
+            database.collection("tblregister").find({}).toArray(function(err,documents) {
                 if(!err) {
                     response.send(documents);
                 }
@@ -37,8 +37,8 @@ app.post("/registeruser",function(request,response) {
     };
     mongoClient.connect(connectionString,function(err,clientObj) {
         if(!err) {
-            var database=clientObj.db("northwind");
-            database.collection("tblRegister").insertOne(data,function(err,result) {
+            var database=clientObj.db("Northwind");
+            database.collection("tblregister").insertOne(data,function(err,result) {
                 if(!err) {
                     console.log("Record Inserted..")
                 }
